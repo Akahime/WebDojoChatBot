@@ -38,8 +38,33 @@ function receivedMessage(event) {
   }
 }
 
-function sendGenericMessage(recipientId, messageText) {
-  // To be expanded in later sections
+function sendGenericMessage(recipientId) {
+    var messageData = {
+        recipient: {
+            id: recipientId
+        },
+        message: {
+            attachment: {
+                type: "template",
+                payload: {
+                    template_type: "generic",
+                    elements: [{
+                        title: "Welcome",
+                        subtitle: "You are new to our chatbot !",
+                        item_url: "https://developers.facebook.com/docs/messenger-platform/guides/quick-start#-tapes",
+                        image_url: "https://cdn-images-1.medium.com/max/800/0*MDKwDDWaGDCF8J9a.png",
+                        buttons: [{
+                            type: "web_url",
+                            url: "https://developers.facebook.com/docs/messenger-platform/guides/quick-start#-tapes",
+                            title: "Open Web URL"
+                        }]
+                    }]
+                }
+            }
+        }
+    };
+
+    callSendAPI(messageData);
 }
 
 function sendTextMessage(recipientId, messageText) {
