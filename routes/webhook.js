@@ -58,5 +58,4 @@ function receivedMessage(event) {
     }
 }
 
-
 module.exports = router;
