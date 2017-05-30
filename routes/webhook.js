@@ -43,7 +43,7 @@ router.post('/', function (req, res) {
 
 function receivedMessage(event) {
     // Putting a stub for now, we'll expand it in the following steps
-    chatService.sendTextMessage(event.recipient.id,event.message);
+    chatService.sendTextMessage(event.recipient.id,event.message.text);
 }
 
 
