@@ -8,3 +8,5 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
     res.render('weather');
 });
+
+module.exports = router;
