@@ -3,11 +3,11 @@ var router = express.Router();
 var chatService = require('../server/chatService')
 /* GET hello world page. */
 router.get('/', function(req, res, next) {
-    if(chatService.authenticate(req)) {
-        res.send("1495392341");
+    if(req.query['hub.mode'] === 'subscribe' && chatService.authenticate(req)) {
+        res.status(200).send(req.query['hub.challenge']);
     }
     else{
-        res.send("400");
+        res.sendStatus(403);
     }
 });
 
