@@ -25,7 +25,7 @@ router.post('/', function (req, res) {
             // Iterate over each messaging event
             entry.messaging.forEach(function (event) {
                 if (event.message) {
-                    receivedMessage(pageID,event);
+                    receivedMessage(event);
                 } else {
                     console.log("Webhook received unknown event: ", event);
                 }
@@ -41,9 +41,9 @@ router.post('/', function (req, res) {
     }
 });
 
-function receivedMessage(pageID,event) {
+function receivedMessage(event) {
     // Putting a stub for now, we'll expand it in the following steps
-    chatService.sendTextMessage(pageID,event.message);
+    chatService.sendTextMessage(event.recipient.id,event.message);
 }
 
 
