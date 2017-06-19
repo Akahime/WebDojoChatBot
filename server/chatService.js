@@ -73,7 +73,7 @@ function sendTextMessage(recipientId, messageText) {
       id: recipientId
     },
     message: {
-      text: "Hello from the other side"
+      text: messageText
     }
   };
 
