@@ -1,5 +1,5 @@
 {
-  "serverUrl": "<insert your server url here>",
+  "serverUrl": "webdojo-chatbot-dty.herokuapp.com",
   "weatherApiToken": "<insert your weather api token here>",
   "googleApiToken": "<insert your google geolocalisation api token here>",
   "pageAccessToken": "EAAXnJ6BfAGsBAExYCXMFj8yVeKBq9Oe826lRI8rL0Qy9KsclRPlAQiTXMmSlkY6ACJOem9l4jZAgBcpVBeAAHIOUMKebXJwwGopkZBQqLZCzopuZC1YARBCe6efWzVOji5ZB8AoPbXNR66SQujm7d7ENarPesN2JVFMNkQFRukgZDZD",

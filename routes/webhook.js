@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var chatService = require('../server/chatService')
+var chatService = require('../server/chatService');
+var userService = require('../server/userService');
+
 /* GET hello world page. */
 router.get('/', function (req, res, next) {
     if (req.query['hub.mode'] === 'subscribe' && chatService.authenticate(req)) {
@@ -42,9 +44,18 @@ router.post('/', function (req, res) {
 });
 
 function receivedMessage(event) {
-    // Putting a stub for now, we'll expand it in the following steps
-    chatService.sendTextMessage(event.sender.id,event.message.text);
+    //if the user is known
+    if(userService.isUserKnown(event.sender.id)) {
+        //send back message
+        chatService.sendTextMessage(event.sender.id,event.message.text);
+    }
+    //else send welcome and add to database
+    else {
+        //We add the user and the time it is added
+        userService.addUser(event.sender.id, event.timestamp);
+        //We send a welcome message
+        chatService.sendGenericMessage(event.sender.id);
+    }
 }
-
 
 module.exports = router;
