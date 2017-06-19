@@ -48,7 +48,7 @@ function sendTextMessage(recipientId, messageText) {
       id: recipientId
     },
     message: {
-      text: messageText
+      text: "Hello from the other side"
     }
   };
 
@@ -100,6 +100,7 @@ function sendCarouselReply(recipientId, carousel) {
 }
 
 function callSendAPI(messageData) {
+  console.log(PAGE_ACCESS_TOKEN);
   request({
     uri: 'https://graph.facebook.com/v2.6/me/messages',
     qs: { access_token: PAGE_ACCESS_TOKEN },
